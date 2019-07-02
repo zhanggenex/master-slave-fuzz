@@ -14,23 +14,23 @@ print-args()
     done
 }
 
-args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-M" "master" "./aflapp")
+args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-M" "master" "$2" "$3" "@@" "$4")
 print-args "AFL cmdline:" "${args[@]}"
 nohup timeout $time "${args[@]}" > master.log  &
 
-args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer1" "./aflapp")
+args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer1" "$2" "$3" "@@" "$4")
 print-args "AFL cmdline:" "${args[@]}"
 nohup timeout $time "${args[@]}" > fuzzer1.log  &
 
-args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer2" "./aflapp")
+args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer2" "$2" "$3" "@@" "$4")
 print-args "AFL cmdline:" "${args[@]}"
 nohup timeout $time "${args[@]}" > fuzzer2.log  &
 
-args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer3" "./aflapp")
+args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer3" "$2" "$3" "@@" "$4")
 print-args "AFL cmdline:" "${args[@]}"
 nohup timeout $time "${args[@]}" > fuzzer3.log  &
 
-args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer4" "./aflapp")
+args=("../afl-fuzz" "-m 20981520" "-t 1000" "-i" "seed" "-o" "out" "-S" "fuzzer4" "$2" "$3" "@@" "$4")
 print-args "AFL cmdline:" "${args[@]}"
 nohup timeout $time "${args[@]}" > fuzzer4.log
 
